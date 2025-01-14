@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonocardiogram Audio Recorder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Phonocardiogram Audio Recorder</h1>
+
+      <!-- Device Selection -->
+      <div class="device-select">
+        <label for="audioDevice">Select Audio Input Device:</label>
+        <select id="audioDevice"></select>
+      </div>
+
+      <!-- Pre-filters -->
+      <div class="prefilter-controls">
+        <h3>Select Pre-Filter</h3>
+        <label>
+          <input type="radio" name="preFilter" value="none" checked />
+          No Filter
+        </label>
+        <label>
+          <input type="radio" name="preFilter" value="heart" />
+          Heart (20 Hz - 250 Hz)
+        </label>
+        <label>
+          <input type="radio" name="preFilter" value="lungs" />
+          Lungs (200 Hz - 600 Hz)
+        </label>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="startRecording">Start Recording</button>
+        <button id="stopRecording" disabled>Stop Recording</button>
+        <p id="statusMessage" style="color: red; text-align: center"></p>
+      </div>
+
+      <!-- Phonocardiogram Visualizer -->
+      <div class="visualizer-container">
+        <h3>Phonocardiogram (Amplitude vs Time)</h3>
+        <canvas id="phonocardiogramCanvas"></canvas>
+      </div>
+
+      <!-- Playback Section -->
+      <div class="playback">
+        <h3>Playback and Download</h3>
+        <audio id="audioPlayback" controls></audio>
+        <button id="downloadAudio">Download WAV File</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
